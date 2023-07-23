@@ -1,6 +1,10 @@
 import React from "react";
-import { ReactNavbar } from "overlay-navbar";
+
 import logo from "../../../images/logo.png";
+
+import Nav from "react-bootstrap/Nav";
+
+import "./Head.css";
 
 const options = {
   burgerColorHover: "#eb4034",
@@ -35,8 +39,27 @@ const options = {
   cartIconMargin: "1vmax",
 };
 
-const Header = () => {
-  return <ReactNavbar {...options} />;
-};
+function Header(props) {
+  return (
+    <div className="center">
+      <div className="container">
+        <Nav className="navbar">
+          <a className="title" href="/">
+            Ecommerce
+          </a>
+          <a className="nav" href="/">
+            Home
+          </a>
+          <a className="nav" href="/products">
+            Products
+          </a>
+          <a className="nav" href="/login">
+            Login
+          </a>
+        </Nav>
+      </div>
+    </div>
+  );
+}
 
 export default Header;

@@ -3,6 +3,9 @@
   right: 3vmax;
   top: 3vmax;
 }
+.container{
+  margin: 1vmax auto;
+}
 
 .speedDialIcon {
   width: 56px;
