@@ -5,6 +5,7 @@ import logo from "../../../images/logo.png";
 import Nav from "react-bootstrap/Nav";
 
 import "./Head.css";
+import { useSelector } from "react-redux";
 
 const options = {
   burgerColorHover: "#eb4034",
@@ -40,6 +41,7 @@ const options = {
 };
 
 function Header(props) {
+  const { isAuthenticated } = useSelector((state) => state.user);
   return (
     <div className="center">
       <div className="container">
@@ -53,9 +55,15 @@ function Header(props) {
           <a className="nav" href="/products">
             Products
           </a>
-          <a className="nav" href="/login">
-            Login
-          </a>
+          {isAuthenticated ? (
+            <a className="nav" href="/logout">
+              Logout
+            </a>
+          ) : (
+            <a className="nav" href="/login">
+              Login
+            </a>
+          )}
         </Nav>
       </div>
     </div>

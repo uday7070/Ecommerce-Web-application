@@ -29,7 +29,7 @@ const ProductDetails = ({ match }) => {
   const { product, loading, error } = useSelector(
     (state) => state.productDetails
   );
-
+  const { isAuthenticated } = useSelector((state) => state.user);
   const { success, error: reviewError } = useSelector(
     (state) => state.newReview
   );
@@ -61,8 +61,12 @@ const ProductDetails = ({ match }) => {
   };
 
   const addToCartHandler = () => {
-    dispatch(addItemsToCart(match.params.id, quantity));
-    alert.success("Item Added To Cart");
+    if (!isAuthenticated) {
+      alert.error("please login to access this resource");
+    } else {
+      dispatch(addItemsToCart(match.params.id, quantity));
+      alert.success("Item Added To Cart");
+    }
   };
 
   const submitReviewToggle = () => {

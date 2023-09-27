@@ -42,6 +42,7 @@ const Home = () => {
 
           <h2 className="homeHeading">Featured Products</h2>
 
+          {console.log(products)}
           <div className="container" id="container">
             {products &&
               products.map((product) => (

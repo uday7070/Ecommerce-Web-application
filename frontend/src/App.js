@@ -42,6 +42,7 @@ import ProductReviews from "./component/Admin/ProductReviews";
 import Contact from "./component/layout/Contact/Contact";
 import About from "./component/layout/About/About";
 import NotFound from "./component/layout/Not Found/NotFound";
+import Logout from "./component/User/Logout";
 
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -105,6 +106,7 @@ function App() {
         <Route exact path="/password/reset/:token" component={ResetPassword} />
 
         <Route exact path="/login" component={LoginSignUp} />
+        <Route exact path="/logout" component={Logout} />
 
         <Route exact path="/cart" component={Cart} />
 
